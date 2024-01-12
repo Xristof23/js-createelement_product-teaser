@@ -12,9 +12,9 @@ const imageSrc =
 
 const article = document.createElement("article");
 document.body.append(article);
+article.classList.add("product");
 // article.innerHTML = `<h2  class="product__name"> ${name} </h2>`
-article.innerHTML = `
-	<div class="product__body">
+article.innerHTML = `<div class="product__body">
         <div class="product__text-container">
           <h2 class="product__name">${name}</h2>
           <ul class="product__categories">
@@ -30,15 +30,18 @@ article.innerHTML = `
           <img
             class="product__image"
             src=${imageSrc}
-            alt=""
+            alt="Image of Queeny fish"
           />
         </div>
       </div>
       <footer class="product__footer">
         <span class="product__price"> ${price}</span>
-        <button type="button" class="product__buy-button">Buy</button>
+        <button type="button" class="product__buy-button" data-js="buy-button">Buy</button>
       </footer>
   
 `;
-console.log(description);
-console.log(article);
+
+const buyButton = document.querySelector("[data-js=buy-button");
+buyButton.addEventListener("click", () => {
+  console.log(`${name} ${price}`);
+});
